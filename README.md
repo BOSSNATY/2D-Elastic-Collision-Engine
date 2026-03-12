@@ -78,7 +78,7 @@ project-folder
 │
 ├── collision_simulation.py   # Main VPython simulation script
 ├── README.md                 # Project documentation
-└── results/                  # Generated graphs (optional)
+
 ```
 
 ---
@@ -106,19 +106,6 @@ Because the collision is **elastic**, the following should occur:
 - Pucks change direction after collision according to conservation laws
 
 Small fluctuations may occur due to **numerical time stepping**, but the overall quantities remain nearly constant.
-
----
-
-## Challenges Encountered
-
-During development several challenges appeared:
-
-- Preventing **puck overlap during collision**
-- Maintaining **numerical stability**
-- Ensuring that **kinetic energy does not artificially spike or drop**
-- Correctly implementing **2D vector collision equations**
-
-These issues were solved by implementing proper **collision detection and velocity updates** along the line connecting the centers of the two pucks.
 
 ---
 
@@ -150,4 +137,4 @@ This project demonstrates how **computational physics techniques** can simulate 
 
 ## Authors
 
-Project completed by students as part of a **computational physics assignment** involving numerical simulation and visualization.
+Project completed by students as part of a **physics assignment** involving numerical simulation and visualization.
