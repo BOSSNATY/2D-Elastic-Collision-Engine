@@ -1,7 +1,6 @@
 from vpython import *
 import matplotlib.pyplot as plt
 
-# ==================== SCENE SETUP ====================
 scene = canvas(title='2D Elastic Puck Collision – Euler Method (Fast + Velocity Arrows)',
                width=900, height=700, background=color.black)
 scene.forward = vector(0, -0.2, -1)
@@ -9,8 +8,8 @@ scene.range = 12
 scene.autoscale = False
 
 # ==================== PARAMETERS ====================
-dt = 2e-5          # balanced for speed and reasonable conservation
-k = 60000          # stiff spring
+dt = 2e-5          
+k = 60000          
 r = 1.2
 m1 = m2 = 2.0
 damping = 0.0
@@ -47,7 +46,7 @@ t_last = 0
 t_max = 5.0
 
 while t < t_max:
-    rate(3000)  # fast but smooth
+    rate(3000)  
 
     # Compute forces
     r_rel = puck2.pos - puck1.pos
@@ -80,7 +79,7 @@ while t < t_max:
 
     # Update velocity arrows
     vel_arrow1.pos = puck1.pos
-    vel_arrow1.axis = puck1.v * 0.15   # scale arrow length with speed
+    vel_arrow1.axis = puck1.v * 0.15   
     vel_arrow2.pos = puck2.pos
     vel_arrow2.axis = puck2.v * 0.15
 
