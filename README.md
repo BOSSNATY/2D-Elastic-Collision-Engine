@@ -33,7 +33,7 @@ For two objects with masses (m_1) and (m_2) and velocities (v_1) and (v_2):
 
 **Momentum conservation**
 
-p = m_1*v_1 + m_2*v_2 = m_1\*v_1' + m_2v_2'
+p = m_1*v_1 + m_2*v_2 = m_1*v_1' + m_2*v_2'
 
 **Kinetic energy conservation**
 
