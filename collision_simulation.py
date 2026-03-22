@@ -106,6 +106,7 @@ print(f"Initial Momentum magnitude: {initial_mom:.3f} kg·m/s")
 print(f"Final Momentum magnitude: {momentum_list[-1]:.3f} kg·m/s")
 
 # ==================== PLOTTING ====================
+# ==================== USING MATPLOTLIB ============
 plt.figure(figsize=(10,4))
 
 plt.subplot(1,2,1)
