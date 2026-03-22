@@ -98,6 +98,7 @@ while t < t_max:
         t_last = t
 
 # ==================== FINAL PRINT ====================
+
 initial_KE = 0.5*m1*mag2(vector(5.5, 1.2, 0)) + 0.5*m2*mag2(vector(-4.5, -0.9, 0))
 initial_mom = mag(m1*vector(5.5, 1.2, 0) + m2*vector(-4.5, -0.9, 0))
 print(f"Initial KE: {initial_KE:.3f} J")
