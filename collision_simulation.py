@@ -1,7 +1,7 @@
 from vpython import *
 import matplotlib.pyplot as plt
 
-scene = canvas(title='2D Elastic Puck Collision – using Euler Method',
+scene = canvas(title='2D Elastic Puck Collision – Euler Method (Fast + Velocity Arrows)',
                width=900, height=700, background=color.black)
 scene.forward = vector(0, -0.2, -1)
 scene.range = 12
@@ -106,7 +106,6 @@ print(f"Initial Momentum magnitude: {initial_mom:.3f} kg·m/s")
 print(f"Final Momentum magnitude: {momentum_list[-1]:.3f} kg·m/s")
 
 # ==================== PLOTTING ====================
-# ==================== USING MATPLOTLIB ============
 plt.figure(figsize=(10,4))
 
 plt.subplot(1,2,1)
