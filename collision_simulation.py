@@ -1,7 +1,7 @@
 from vpython import *
 import matplotlib.pyplot as plt
 
-scene = canvas(title='2D Elastic Puck Collision – Euler Method',
+scene = canvas(title='2D Elastic Puck Collision – Euler Method (Fast + Velocity Arrows)',
                width=900, height=700, background=color.black)
 scene.forward = vector(0, -0.2, -1)
 scene.range = 12
