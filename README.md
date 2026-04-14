@@ -129,8 +129,6 @@ After the simulation finishes, graphs of **kinetic energy** and **momentum** wil
 
 ## Virtual Simulation
 
-https://www.glowscript.org/#/user/bossnaty/folder/MyPrograms/program/2D-Elastic-Collision-Engine
-
 [Click Here to get the live simulation](https://www.glowscript.org/#/user/bossnaty/folder/MyPrograms/program/2D-Elastic-Collision-Engine)
 
 ## Conclusion
