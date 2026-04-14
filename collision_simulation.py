@@ -34,14 +34,13 @@ arrow2 = arrow(pos=puck2.pos, axis=puck2.v * v_arrow_scale, color=color.yellow)
 ke_display = label(pos=vector(0, 9, 0), text='KE: --', height=16, border=4, font='monospace', box=False)
 mom_display = label(pos=vector(0, 7.5, 0), text='Momentum: --', height=16, border=4, font='monospace', box=False)
 
-# Final velocity labels (One decimal place)
 v1_final_lbl = label(pos=vector(-5, -8, 0), text='V1 Final: --', color=color.cyan, height=14, box=False)
 v2_final_lbl = label(pos=vector(5, -8, 0), text='V2 Final: --', color=color.orange, height=14, box=False)
 
-# Simulation State
+# --- START STATE: Set paused to True so it waits for the user ---
 t = 0
 running = True
-paused = False
+paused = True 
 collision_occurred = False
 separation_time = None
 
@@ -50,15 +49,14 @@ def reset_sim():
     global t, running, paused, collision_occurred, separation_time
     t = 0
     running = True
-    paused = False
-    btn_pause.text = "Pause"
+    paused = True # Stay paused on reset
+    btn_pause.text = "Run Simulation"
     collision_occurred = False
     separation_time = None
     
     puck1.pos = vector(-6, -1, 0)
     puck2.pos = vector(6, 1, 0)
     
-    # Apply new slider values
     puck1.m = sl_m1.value
     puck2.m = sl_m2.value
     puck1.v = v1_dir * sl_v1.value
@@ -75,7 +73,6 @@ def reset_sim():
     update_visual_arrows()
 
 def update_visual_arrows():
-    # Hide arrow if velocity is 0
     if mag(puck1.v) > 0.01:
         arrow1.visible = True
         arrow1.pos = puck1.pos
@@ -100,7 +97,7 @@ def update_params():
 def toggle_pause():
     global paused
     paused = not paused
-    btn_pause.text = "Resume" if paused else "Pause"
+    btn_pause.text = "Pause" if not paused else "Resume"
 
 def dummy(): 
     m1_txt.text = '{:1.1f} kg'.format(sl_m1.value)
@@ -118,26 +115,25 @@ sl_m2 = slider(min=0.5, max=10, value=2.0, bind=dummy)
 m2_txt = wtext(text='2.0 kg')
 
 scene.append_to_caption("\nVelocity 1 (m/s)\n")
-sl_v1 = slider(min=0, max=15, value=5.6, bind=dummy) # Min set to 0
+sl_v1 = slider(min=0, max=15, value=5.6, bind=dummy) 
 v1_txt = wtext(text='5.6 m/s')
 
 scene.append_to_caption("\nVelocity 2 (m/s)\n")
-sl_v2 = slider(min=0, max=15, value=5.6, bind=dummy) # Min set to 0
+sl_v2 = slider(min=0, max=15, value=5.6, bind=dummy) 
 v2_txt = wtext(text='5.6 m/s')
 
 scene.append_to_caption("\n\n")
 button(text="Apply & Reset", bind=update_params)
-scene.append_to_caption("  ")
-btn_pause = button(text="Pause", bind=toggle_pause)
+scene.append_to_caption("        ") 
+btn_pause = button(text="Run Simulation", bind=toggle_pause)
 
-# ==================== SIMULATION LOOP ====================
+# ==================== MAIN SIMULATION LOOP ====================
 while True:
     rate(100000)
     
     if running and not paused:
         if t > t_max or (separation_time is not None and t - separation_time > post_collision_grace):
             running = False
-            # Update final velocity labels with one decimal place
             v1_final_lbl.text = 'V1 Final: {:.1f} m/s'.format(mag(puck1.v))
             v2_final_lbl.text = 'V2 Final: {:.1f} m/s'.format(mag(puck2.v))
 
